@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asaan Lease — Assistant Chatbot</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', sans-serif; background:#f8fafc; }
+
+    /* Navbar (same as Home) */
+    .navbar { background:#111 !important; }
+    .navbar-brand { font-weight:800; letter-spacing:.2px; color:#fff!important; }
+    .nav-link { font-weight:600; color:#fff!important; }
+    .nav-link.active, .nav-link:hover { color:#f97316!important; }
+
+    /* Chat Styles */
+    .chat-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      height: 75vh;
+    }
+    .chat-header {
+      padding: 15px;
+      background: #f97316; /* orange theme */
+      color: #fff;
+      font-weight: 600;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .message {
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      max-width: 75%;
+      font-size: 0.95rem;
+    }
+    .message.user { background: #f97316; color: #fff; margin-left:auto; }
+    .message.bot { background: #f1f5f9; color:#111; margin-right:auto; }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input input {
+      flex: 1;
+      border: none;
+      padding: 12px;
+      border-bottom-left-radius: 12px;
+    }
+    .chat-input button {
+      border: none;
+      background: #f97316;
+      color: #fff;
+      padding: 0 20px;
+      border-bottom-right-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Asaan Lease</a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="bestsellers.html">Best Sellers</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+  <li class="nav-item"><a class="nav-link" href="news.html">News & Events</a></li>
+          <li class="nav-item ms-3">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CHATBOT -->
+  <div class="chat-container">
+    <div class="chat-header">💬 Asaan Lease Assistant</div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">Hello 👋, welcome to Asaan Lease! How may I assist you today?</div>
+    </div>
+    <form class="chat-input" id="chatForm">
+      <input type="text" id="userInput" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+<!-- Footer -->
+<footer style="background:#111; color:#d1d5db; padding:40px 0">
+  <div class="container">
+    <div class="row gy-4 mb-4">
+      <!-- Company Info -->
+      <div class="col-md-4">
+        <h5>Asaan Lease</h5>
+        <p class="muted-sm">Phone leasing solution in Pakistan. Flexible terms, warranty included, upgrade options.</p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="col-md-2">
+        <h6>Company</h6>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+
+      <!-- Support Links -->
+      <div class="col-md-2">
+        <h6>Support</h6>
+        <a href="#">Lease Terms</a>
+        <a href="#">Upgrade Policy</a>
+        <a href="#">Warranty</a>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-4">
+        <h6>Newsletter</h6>
+        <form onsubmit="event.preventDefault(); alert('Subscribed!');" class="d-flex gap-2">
+          <input class="form-control" placeholder="Email address">
+          <button class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Line -->
+    <div class="d-flex justify-content-between align-items-center py-3 border-top">
+      <div class="muted-sm">© <span id="copyYear"></span> Asaan Lease — All rights reserved.</div>
+      <div class="muted-sm">Designed by Azlan Khan</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Footer Styles -->
+<style>
+  .muted-sm {
+    color:#d1d5db;
+    font-size:.95rem;
+  }
+  footer a {
+    color:#f97316; /* orange accent */
+    text-decoration:none;
+    display:block;
+    margin-bottom:6px;
+    font-weight:600; /* bold links like products */
+  }
+  footer a:hover {
+    color:#fff;
+  }
+  /* Force equal height for input + button */
+  footer .form-control,
+  footer .btn {
+    height: 42px;
+  }
+</style>
+
+<script>
+  document.getElementById('copyYear').textContent = new Date().getFullYear();
+</script>
+
+  <style>
+    .muted-sm { color:#d1d5db; font-size:.95rem; }
+    footer a { color:#f97316; text-decoration:none; display:block; margin-bottom:6px; }
+    footer a:hover { color:#fff; }
+    footer .form-control, footer .btn { height: 42px; }
+  </style>
+
+  <script>
+    document.getElementById('copyYear').textContent = new Date().getFullYear();
+
+    const chatForm = document.getElementById("chatForm");
+    const chatMessages = document.getElementById("chatMessages");
+    const userInput = document.getElementById("userInput");
+
+    function addMessage(text, sender="bot") {
+      const msg = document.createElement("div");
+      msg.className = "message " + sender;
+      msg.textContent = text;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    chatForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      addMessage(text, "user");
+      userInput.value = "";
+
+      setTimeout(() => {
+        const lower = text.toLowerCase();
+
+        if (["hi","hello","salam","hey","assalamualaikum"].some(g => lower.includes(g))) {
+          addMessage("Hello! 👋 Nice to meet you. Welcome to Asaan Lease. How may I assist you today?");
+        }
+        else if (lower.includes("policy") || lower.includes("plan")) {
+          addMessage("Our leasing policy is very simple: ✅ 0% markup with ✅ 6-month easy installment plan.");
+        }
+        else if (lower.includes("eligible") || lower.includes("who can") || lower.includes("buy")) {
+          addMessage("Our leasing facility is available for professionals such as engineers, doctors, government officials, salaried employees, and other verified individuals.");
+        }
+        else if (lower.includes("iphone") || lower.includes("samsung") || lower.includes("infinix") || lower.includes("vivo") || lower.includes("oppo") || lower.includes("tecno") || lower.includes("redmi") || lower.includes("honor")) {
+          addMessage("Yes, we do offer " + text + " models under our leasing plans. Could you please specify the exact model you are interested in?");
+        }
+        else if (lower.includes("note") || lower.includes("pro") || lower.includes("plus") || lower.includes("ultra") || lower.includes("max")) {
+          addMessage("Thank you for sharing the model 🙌. Please provide your contact details so our customer service team can reach you.");
+        }
+        else if (/\d{10,12}/.test(lower) || lower.includes("whatsapp") || lower.includes("+92")) {
+          addMessage("Thank you for providing your contact details 📲. Our team will reach out to you soon.");
+        }
+        else if (lower.startsWith("my name is") || lower.startsWith("i am")) {
+          const parts = text.split(" ");
+          const name = parts[parts.length-1];
+          addMessage("Nice to meet you, " + name + "! How can I help you with our leasing services?");
+        }
+        else {
+          addMessage("Thank you for your query 🙏. Could you please specify if you’d like to know about our policies, eligibility, or a specific phone model?");
+        }
+      }, 700);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

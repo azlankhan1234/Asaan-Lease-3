@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Products — Asaan Lease</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f97316;
+            --secondary: #fbbf24;
+            --dark: #1f2937;
+            --light: #fff;
+            --gradient: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        body {
+            font-family:'Inter', sans-serif;
+            margin:0;
+            background:#f8f9fa;
+            color:var(--dark);
+        }
+
+        a {
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        section {
+            padding:80px 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background:#fff !important;
+            padding:15px 0;
+            box-shadow:var(--shadow-sm);
+        }
+
+        .navbar-brand img {
+            height:120px;
+            width:auto;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.03);
+        }
+
+        .nav-link {
+            font-weight:600;
+            font-size:1.05rem;
+            color:var(--dark) !important;
+            margin:0 15px;
+        }
+
+        .nav-link:hover {
+            color:var(--primary) !important;
+        }
+
+        .nav-link.active {
+            color:var(--primary) !important;
+            border-bottom:2px solid var(--primary);
+            padding-bottom:5px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-weight:800;
+            font-size:2.8rem;
+            margin-bottom:50px;
+            text-align:center;
+            color:var(--dark);
+            position:relative;
+            display:inline-block;
+        }
+
+        .section-title::after {
+            content:'';
+            position:absolute;
+            left:50%;
+            bottom:-10px;
+            transform:translateX(-50%);
+            width:80px;
+            height:4px;
+            background:var(--primary);
+            border-radius:2px;
+        }
+
+        /* Product Grid */
+        .product-item {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all .3s ease;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .product-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .product-item h5 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-item p {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background:var(--dark);
+            color:#e2e8f0;
+            padding:70px 0 40px;
+        }
+
+        footer h5, footer h6 {
+            color:#fff;
+            font-weight:700;
+            margin-bottom:20px;
+        }
+
+        footer p.muted-sm {
+            font-size:0.95rem;
+            color:#a0aec0;
+        }
+
+        footer a {
+            color:var(--primary);
+            font-weight:500;
+            display:block;
+            margin-bottom:10px;
+        }
+
+        footer a:hover {
+            color:#fff;
+        }
+
+        footer .social-icons {
+            display:flex;
+            gap:18px;
+            margin-top:20px;
+        }
+
+        footer .social-icons a {
+            color:var(--secondary);
+            font-size:1.6rem;
+        }
+
+        footer .social-icons a:hover {
+            color:var(--primary);
+        }
+
+        /* Subscribe Section (Updated same as Home) */
+        footer form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        footer form input[type="email"] {
+            flex: 1;
+            border-radius: 999px;
+            padding: 10px 18px;
+            border: none;
+            background: #fff;
+            color: #333;
+        }
+
+        footer form input[type="email"]::placeholder {
+            color: #777;
+        }
+
+        footer form .btn-primary {
+            border-radius: 999px;
+            background: var(--gradient);
+            border: none;
+            color: #fff;
+            padding: 10px 24px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        footer form .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top:1px solid #374151;
+            padding-top:25px;
+            margin-top:40px;
+            font-size:0.9rem;
+            color:#a0aec0;
+        }
+
+        /* Floating Chat */
+        .chat-btn {
+            position:fixed;bottom:25px;right:25px;
+            width:65px;height:65px;
+            background:var(--primary);color:#fff;
+            border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            font-size:28px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.35);
+            transition:all 0.3s ease;
+            z-index:1000;
+        }
+
+        .chat-btn:hover {
+            background:var(--dark);
+            color:var(--primary);
+            transform: translateY(-3px);
+            box-shadow:0 12px 25px rgba(0,0,0,0.45);
+        }
+
+        /* Modal specific styles */
+        .modal-header {
+            background: var(--primary);
+            color: var(--light);
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding-bottom: 0;
+        }
+
+        .variant-item {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            transition: all 0.2s ease-in-out;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        .variant-item:hover {
+            background: #e2e6ea;
+            border-color: #d1d4d7;
+        }
+        .variant-item.selected {
+            background: var(--primary);
+            color: var(--light);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .variant-item.selected span {
+            color: var(--light) !important;
+        }
+
+        /* UPDATED COLOR SELECTION STYLES - TEXT-BASED */
+        .color-option-text {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 10px;
+            transition: all 0.2s ease-in-out;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            color: var(--dark); /* Ensure text is visible */
+            font-weight: 500;
+        }
+        .color-option-text:hover {
+            background: #e2e6ea;
+            border-color: #d1d4d7;
+        }
+        .color-option-text.selected {
+            background: var(--primary);
+            color: var(--light);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .color-option-text.selected .color-name-text {
+            color: var(--light); /* Ensure selected text color is light */
+        }
+        .color-option-text i { /* Style for the checkmark icon */
+            font-size: 1.2rem;
+            color: var(--light); /* Checkmark color when selected */
+        }
+
+
+        @media(max-width:768px){
+            footer form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            footer form input[type="email"], footer form .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Asaan Lease Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bestsellers.html">Best Sellers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News & Events</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <main class="container py-5">
+        <h3 class="section-title">All Products</h3>
+        <div class="mb-4 text-center">
+            <select id="companySelect" class="form-select w-50 mx-auto">
+                <option value="">Select Company</option>
+            </select>
+        </div>
+        <div class="row g-4" id="productsGrid"></div>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Image -->
+                        <div class="col-md-5 text-center border-end">
+                            <img id="modalImage" class="img-fluid mb-3" src="" alt="">
+                            <!-- Changed to display color names in a column -->
+                            <div id="modalColors" class="d-flex flex-column gap-2 flex-wrap mb-3"></div>
+                        </div>
+                        <!-- Variants -->
+                        <div class="col-md-7">
+                            <h6 class="fw-bold mb-3">Available Variants</h6>
+                            <div class="variant-list list-group mb-3"></div>
+                            <div class="alert alert-light border">
+                                <small class="text-muted"> All devices are brand new, come with official warranty and can be leased in easy installments. </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <span class="fw-bold" id="selectionStatus">Choose your variant & color to proceed</span>
+                    <a id="leaseBtn" class="btn btn-primary btn-lg" href="#">Lease Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-5 mb-4">
+                <div class="col-md-4">
+                    <h5>Asaan Lease</h5>
+                    <p class="muted-sm">Making smartphones accessible in Pakistan with simple leasing, transparent terms, and official warranty for everyone.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h6>Company</h6>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partnerships</a>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h6>Support</h6>
+                    <a href="lease-terms.html">Lease Terms</a>
+                    <a href="#">Upgrade Policy</a>
+                    <a href="#">Warranty Info</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="col-md-4">
+                    <h6>Stay Updated</h6>
+                    <p class="muted-sm">Subscribe to our newsletter for the latest deals and phone updates.</p>
+                    <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Your email address" aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+                <div class="muted-sm mb-2 mb-md-0">© <span id="copyYear"></span> Asaan Lease — All rights reserved.</div>
+                <div class="muted-sm">Designed by Azlan Khan</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat -->
+    <a href="chatbot.html" class="chat-btn" aria-label="Chat with us">💬</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('copyYear').textContent = new Date().getFullYear();
+
+        const phoneData = {
+            "Samsung Galaxy A07": [
+                { variant:"4/64", price:27500, inst:"3 Months Installment", image:"img/phones/samsung-a07-464.jpg", colors:["Black","Blue"] },
+                { variant:"4/128", price:32500, inst:"6 Months Installment", image:"img/phones/samsung-a06-128.jpg", colors:["Black","Silver"] },
+                { variant:"6/128", price:38800, inst:"6 Months Installment", image:"img/phones/samsung-a06-6128.jpg", colors:["Black","Silver"] }
+            ],
+            "Samsung Galaxy A17": [
+                { variant:"6/128", price:54999, inst:"6 Months Installment", image:"img/phones/samsung-a17-6128.jpg", colors:["Black","Green"] },
+                { variant:"8/256", price:62999, inst:"6th Installment", image:"img/phones/samsung-a16-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Samsung Galaxy A26": [
+                { variant:"8/256", price:85000, inst:"4 Months Installment", image:"img/phones/samsung-a26-8256.jpg", colors:["Black","Mint","White","Peach"] }
+            ],
+            "Samsung Galaxy A36": [
+                { variant:"8/256", price:120000, inst:"4 Months Installment", image:"img/phones/samsung-a36-8256.jpg", colors:["Black","Lime","Lavender"] }
+            ],
+            "Samsung Galaxy A55": [
+                { variant:"8/256", price:140000, inst:"6 Months Installment", image:"img/phones/samsung-a55-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Samsung Galaxy A56": [
+                { variant:"8/256", price:138000, inst:"4 Months Installment", image:"img/phones/samsung-a56-8256.jpg", colors:["Black","Silver","Olive"] },
+                { variant:"12/256", price:151000, inst:"4th Installment", image:"img/phones/samsung-a56-12256.jpg", colors:["Black","Silver","Olive"] }
+            ],
+            "Samsung Galaxy S24 FE": [
+                { variant:"8/256", price:220000, inst:"6 Months Installment", image:"img/phones/samsung-s24fe.jpg", colors:["Black","White"] }
+            ],
+            "Samsung Galaxy S25 FE": [
+                { variant:"8/512", price:259999, inst:"6 Months Installment", image:"img/phones/samsung-s25fe.jpg", colors:["Black","White"] }
+            ],
+            "Samsung Galaxy S25": [
+                { variant:"12/512", price:315000, inst:"4 Months Installment", image:"img/phones/samsung-s25.jpg", colors:["Black","Silver"] }
+            ],
+            "Samsung Galaxy S25 Ultra": [
+                { variant:"12/512", price:440000, inst:"4 Months Installment", image:"img/phones/samsung-s25ultra.jpg", colors:["Black","Silver"] }
+            ],
+            // TECNO Models
+            "Tecno Spark Go": [
+                { variant:"2/64", price:20000, inst:"4 Months Installment", image:"img/phones/tecno-sparkgo-264.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark Go1": [
+                { variant:"3/64", price:20500, inst:"3/4 Months Installment",image:"img/phones/tecno-sparkgo1-364.jpg", colors:["Black","Blue"] },
+                { variant:"4/64", price:23000, image:"img/phones/tecno-sparkgo1-464.jpg", colors:["Black","Blue"] },
+                { variant:"4/128", price:26500, image:"img/phones/tecno-sparkgo1-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark Go2": [
+                { variant:"4/64", price:24000,inst:"3 Months Installment", image:"img/phones/tecno-sparkgo2-464.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark 30C": [
+                { variant:"6/128", price:30000,inst:"4 Months Installment", image:"img/phones/tecno-spark30c-6128.jpg", colors:["Black","Green"] }
+            ],
+            "Tecno Spark 30": [
+                { variant:"8/128", price:40000,inst:"6 Months Installment", image:"img/phones/tecno-spark30-8128.jpg", colors:["Black","Green"] }
+            ],
+            "Tecno Spark 30 Pro": [
+                { variant:"8/128", price:40000,inst:"5 Months Installment", image:"img/phones/tecno-spark30pro-8128.jpg", colors:["Black","Green"] }
+            ],
+            "Tecno Spark 40": [
+                { variant:"6/128", price:33000,inst:"3 Months Installment", image:"img/phones/tecno-spark40-6128.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark 40C": [
+                { variant:"4/128", price:27000,inst:"3 Months Installment", image:"img/phones/tecno-spark40c-6128.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark 40 Pro": [
+                { variant:"8/256", price:49000,inst:"4 Months Installment", image:"img/phones/tecno-spark40pro-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Spark 40 Pro Plus": [
+                { variant:"8/256", price:60000,inst:"4 Months Installment", image:"img/phones/tecno-spark40proplus-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Tecno Camon 40": [
+                { variant:"8/256", price:58000,inst:"3 Months Installment", image:"img/phones/tecno-camon40-8256.jpg", colors:["Black","Gold"] }
+            ],
+            "Oppo A5i": [
+                { variant:"4/64", price:28000,inst:"3 Months Installment", image:"img/phones/oppo-a5i-464.jpg", colors:["Black","Blue"] },
+                { variant:"4/128", price:0, image:"img/phones/oppo-a5i-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Oppo A5x": [
+                { variant:"4/64", price:30000,inst:"3 Months Installment", image:"img/phones/oppo-a5x-464.jpg", colors:["Black","Blue"] }
+            ],
+            "Oppo A3": [
+                { variant:"6/128", price:40000,inst:"3 Months Installment", image:"img/phones/oppo-a3-6128.jpg", colors:["Black","Blue"] },
+                { variant:"6/256", price:42000, image:"img/phones/oppo-a3-6256.jpg", colors:["Black","Blue"] }
+            ],
+            "Oppo A5 Pro": [
+                { variant:"8/128", price:50000,inst:"3 Months Installment", image:"img/phones/oppo-a5pro-8128.jpg", colors:["Black","Blue"] },
+                { variant:"8/256", price:55000, image:"img/phones/oppo-a5pro-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Oppo A6 Pro": [
+                { variant:"8/256", price:80000,inst:"3 Months Installment", image:"img/phones/oppo-a6pro-8128.jpg", colors:["Black","Blue"] },
+            ],
+            "Oppo Reno 14F": [
+                { variant:"8/256", price:100000,inst:"3 Months Installment", image:"img/phones/oppo-reno14f-8256.jpg", colors:["Black","Gold"] }
+            ],
+            "Oppo Reno 14 5G": [
+                { variant:"12/256", price:150000,inst:"3 Months Installment", image:"img/phones/oppo-reno14-12256.jpg", colors:["Black","Gold"] },
+                { variant:"12/512", price:160000, image:"img/phones/oppo-reno14-12512.jpg", colors:["Black","Gold"] }
+            ],
+            "Oppo Reno 14 Pro 5G": [
+                { variant:"12/512", price:220000,inst:"3 Months Installment", image:"img/phones/oppo-reno14pro-12512.jpg", colors:["Black","Gold"] }
+            ],
+            "Redmi A3X": [
+                { variant:"3/64", price:19600,inst:"4 Months Installment", image:"img/phones/redmi-a3x-364.jpg", colors:["Black","Blue"] }
+            ],
+            "Redmi A5": [
+                { variant:"4/64", price:23575,inst:"4 Months Installment", image:"img/phones/redmi-a5-464.jpg", colors:["Black","Blue"] },
+                { variant:"4/128", price:27000, image:"img/phones/redmi-a5-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Redmi 14C": [
+                { variant:"4/128", price:27000,inst:"4 Months Installment", image:"img/phones/redmi-14c-4128.jpg", colors:["Black","Green"] },
+                { variant:"6/128", price:30000, image:"img/phones/redmi-14c-6128.jpg", colors:["Black","Green"] }
+            ],
+            "Redmi 15C": [
+                { variant:"4/128", price:32000,inst:"3 Months Installment", image:"img/phones/redmi-15c-4128.jpg", colors:["Black","Green"] },
+                { variant:"6/128", price:34000, image:"img/phones/redmi-15c-6128.jpg", colors:["Black","Green"] }
+            ],
+            "Redmi 15": [
+                { variant:"8/128", price:46000,inst:"3 Months Installment", image:"img/phones/redmi-15-4128.jpg", colors:["Black","Green"] },
+            ],
+            "Poco C75": [
+                { variant:"8/256", price:32000,inst:"4 Months Installment", image:"img/phones/poco-c75-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Redmi 13": [
+                { variant:"8/128", price:35000,inst:"4 Months Installment", image:"img/phones/redmi-13-8128.jpg", colors:["Black","Blue"] }
+            ],
+            "Redmi Note 14": [
+                { variant:"8/128", price:54000,inst:"4 Months Installment", image:"img/phones/redmi-note14-8128.jpg", colors:["Black","Silver"] },
+                { variant:"8/256", price:58000, image:"img/phones/redmi-note14-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Redmi Note 14 Pro": [
+                { variant:"8/256", price:80000,inst:"4 Months Installment", image:"img/phones/redmi-note14pro-8256.jpg", colors:["Black","Blue"] },
+                { variant:"12/512", price:95000, image:"img/phones/redmi-note14pro-12512.jpg", colors:["Black","Blue"] }
+            ],
+            "Redmi Note 13 Pro+": [
+                { variant:"12/512", price:147000,inst:"4 Months Installment", image:"img/phones/redmi-note13proplus-12512.jpg", colors:["Black","Gold"] }
+            ],
+            "Redmi Note 14 Pro+": [
+                { variant:"12/512", price:145000,inst:"4 Months Installment", image:"img/phones/redmi-note14proplus-12512.jpg", colors:["Black","Gold"] }
+            ],
+            "Redmi Pad 2": [
+                { variant:"8/256 WiFi", price:58000,inst:"3 Months Installment", image:"img/phones/redmi-pad2-wifi-8256.jpg", colors:["Black","Gray"] },
+                { variant:"8/256 4G", price:63000, image:"img/phones/redmi-pad2-4g-8256.jpg", colors:["Black","Gray"] }
+            ],
+            "Xiaomi 14T": [
+                { variant:"12/512", price:176000,inst:"3 Months Installment", image:"img/phones/xiaomi-14t-12512.jpg", colors:["Black","Silver"] }
+            ],
+            "Xiaomi 14T Pro": [
+                { variant:"12/512", price:230000,inst:"3 Months Installment", image:"img/phones/xiaomi-14tpro-12512.jpg", colors:["Black","Silver"] }
+            ],
+            "Xiaomi 14": [
+                { variant:"12/512", price:300000,inst:"3 Months Installment", image:"img/phones/xiaomi-14-12512.jpg", colors:["Black","Silver"] }
+            ],
+             "Xiaomi 15T": [
+                { variant:"12/512", price:170000,inst:"3 Months Installment", image:"img/phones/xiaomi-15t-12512.jpeg", colors:["Black","Silver"] }
+            ],
+             "Xiaomi 15T Pro": [
+                { variant:"12/512", price:240000,inst:"3 Months Installment", image:"img/phones/xiaomi-15tpro-12512.jpeg", colors:["Black","Silver"] }
+            ],
+            "Xiaomi 15 Ultra": [
+                { variant:"16/512", price:400000,inst:"3 Months Installment", image:"img/phones/xiaomi-15ultra-16512.jpg", colors:["Black","Gold"] }
+            ],
+            "Xiaomi Pad 7": [
+                { variant:"8/256", price:125000,inst:"3 Months Installment", image:"img/phones/xiaomi-pad7-8256.jpg", colors:["Black","Gray"] }
+            ],
+            "Xiaomi Pad 7 Pro": [
+                { variant:"8/256", price:166000,inst:"3 Months Installment", image:"img/phones/xiaomi-pad7pro-8256.jpg", colors:["Black","Gray"] }
+            ],
+            "Sego Zero 50": [
+                { variant:"8/256", price:50000,inst:"5 Months Installment", image:"img/phones/sego-zero50-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Sego Smart 9HD": [
+                { variant:"2/64", price:15000,inst:"3 Months Installment", image:"img/phones/sego-smart9hd-264.jpg", colors:["Black","Blue"] }
+            ],
+            "Sego S24": [
+                { variant:"4/128", price:27000,inst:"3 Months Installment", image:"img/phones/sego-s24-4128.jpg", colors:["Black","Silver"] }
+            ],
+            "Sego Neo 20": [
+                { variant:"3/64", price:17000,inst:"3 Months Installment", image:"img/phones/sego-neo20-364.jpg", colors:["Black","Blue"] }
+            ],
+            "Sego Note 60": [
+                { variant:"4/128", price:21000,inst:"3 Months Installment", image:"img/phones/sego-note60-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Honor X5B Plus": [
+                { variant:"4/128", price:26000,inst:"3 Months Installment", image:"img/phones/honor-x5bplus-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Honor X6C": [
+                { variant:"6/128", price:30000,inst:"3 Months Installment", image:"img/phones/honor-x6c-6128.jpg", colors:["Black","Blue"] },
+                { variant:"6/256", price:35000, image:"img/phones/honor-x6c-6256.jpg", colors:["Black","Blue"] }
+            ],
+            "Honor X7C": [
+                { variant:"8/256", price:45000,inst:"4 Months Installment", image:"img/phones/honor-x7c-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Honor X9C": [
+                { variant:"12/256", price:100000,inst:"3 Months Installment", image:"img/phones/honor-x9c-12256.jpg", colors:["Black","Gold"] }
+            ],
+"Realme Note 60X": [
+{ "variant":"3/64", "price":22500, "inst":"6TH INST.", "image":"img/phones/realme-note-60x.jpeg" },
+{ "variant":"4/64", "price":26500, "inst":"6TH INST.", "image":"img/phones/realme-note-60x-464.jpg" },
+{ "variant":"4/128", "price":30000, "inst":"6TH INST.", "image":"img/phones/realme-note-60x-4128.jpg" }
+],
+"Realme Note 60": [
+{ "variant":"4/64", "price":27500, "inst":"6TH INST.", "image":"img/phones/realme-note-60-464.jpeg" },
+{ "variant":"4/128", "price":28800, "inst":"6TH INST.", "image":"img/phones/realme-note-60-4128.jpg" }
+],
+"Realme Note 70": [
+{ "variant":"4/128", "price":35000, "inst":"6TH INST.", "image":"img/phones/realme-note-70-4128.jpeg" },
+{ "variant":"6/128", "price":37000, "inst":"6TH INST.", "image":"img/phones/realme-note-70-6128.jpg" }
+],
+"Realme C71": [
+{ "variant":"6/128", "price":40500, "inst":"6TH INST.", "image":"img/phones/realme-c71-6128.jpeg" },
+{ "variant":"8/128", "price":45000, "inst":"6TH INST.", "image":"img/phones/realme-c71-8128.jpg" }
+],
+"Realme C63": [
+{ "variant":"6/128", "price":40000, "inst":"6TH INST.", "image":"img/phones/realme-c63-6128.jpeg" },
+{ "variant":"8/128", "price":41300, "inst":"6TH INST.", "image":"img/phones/realme-c63-8128.jpg" }
+],
+"Realme C75": [
+{ "variant":"8/128", "price":50500, "inst":"6TH INST.", "image":"img/phones/realme-c75-8128.jpeg" },
+{ "variant":"8/256", "price":56000, "inst":"6TH INST.", "image":"img/phones/realme-c75-8256.jpg" }
+],
+"Realme C75X": [
+{ "variant":"6/128", "price":46000, "inst":"6TH INST.", "image":"img/phones/realme-c75x-6128.jpeg" },
+{ "variant":"8/128", "price":49000, "inst":"6TH INST.", "image":"img/phones/realme-c75x-8128.jpg" }
+],
+"Realme 12 Plus 5G": [
+{ "variant":"8/256", "price":87500, "inst":"6TH INST.", "image":"img/phones/realme-12-plus-5g-8256.jpeg" }
+],
+"Realme 13 Plus": [
+{ "variant":"12/256", "price":95500, "inst":"6TH INST.", "image":"img/phones/realme-13-plus-12256.jpeg" }
+],
+"Realme 14T": [
+{ "variant":"12/256", "price":87500, "inst":"6TH INST.", "image":"img/phones/realme-14t-12256.jpeg" }
+],
+"Realme 14": [
+{ "variant":"12/512", "price":108000, "inst":"6TH INST.", "image":"img/phones/realme-14-12512.jpeg" }
+],
+"Realme GT 7": [
+{ "variant":"12/512", "price":230500, "inst":"6TH INST.", "image":"img/phones/realme-gt-7-12512.jpeg" }
+],
+"Realme GT 7T": [
+{ "variant":"12/512", "price":196000, "inst":"6TH INST.", "image":"img/phones/realme-gt-7t-12512.jpeg" }
+],
+"Realme 15": [
+{ "variant":"12/512", "price":131500, "inst":"6 Months", "image":"img/phones/realme-15-12512.jpeg" }
+],
+"Realme 15 Pro": [
+{ "variant":"12/512", "price":176000, "inst":"6 Months", "image":"img/phones/realme-15-pro-12512.jpeg" }
+],
+"Realme 15T": [
+{ "variant":"8/256", "price":86000, "inst":"6 Months", "image":"img/phones/realme-15t-8256.jpeg" }
+],
+            // VIVO Models
+            "Vivo Y04": [
+                { variant:"4/64", price:29000,inst:"4 Months Installment", image:"img/phones/vivo-y04-464.jpg", colors:["Black","Blue"] },
+                { variant:"4/128", price:32000, image:"img/phones/vivo-y04-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Vivo Y19s": [
+                { variant:"4/128", price:37000,inst:"4 Months Installment", image:"img/phones/vivo-y19s-4128.jpg", colors:["Black","Green"] },
+                { variant:"6/128", price:43000, image:"img/phones/vivo-y19s-6128.jpg", colors:["Black","Green"] }
+            ],
+            "Vivo Y19s Pro": [
+                { variant:"6/128", price:44000,inst:"4 Months Installment", image:"img/phones/vivo-y19spro-6128.jpg", colors:["Black","Blue"] }
+            ],
+            "Vivo Y29": [
+                { variant:"8/128", price:50000,inst:"4 Months Installment", image:"img/phones/vivo-y29-8128.jpg", colors:["Black","Blue"] },
+                { variant:"8/256", price:55000, image:"img/phones/vivo-y29-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Vivo Y200": [
+                { variant:"8/128", price:58000,inst:"4 Months Installment", image:"img/phones/vivo-y200-8128.jpg", colors:["Black","Silver"] },
+                { variant:"8/256", price:63000, image:"img/phones/vivo-y200-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Vivo Y400": [
+                { variant:"8/256", price:65000,inst:"4 Months Installment", image:"img/phones/vivo-y400-8256.jpg", colors:["Black","Blue"] }
+            ],
+             "Vivo Y21D": [
+                { variant:"6/128", price:44000,inst:"4 Months Installment", image:"img/phones/vivo-y21D.jpeg", colors:["Black","Blue"] }
+            ],
+            "Vivo V50 Lite": [
+                { variant:"8/256", price:74000,inst:"4 Months Installment", image:"img/phones/vivo-v50lite-8256.jpg", colors:["Black","Blue"] },
+                { variant:"12/256", price:90000, image:"img/phones/vivo-v50lite-12256.jpg", colors:["Black","Blue"] }
+            ],
+            "Vivo V50": [
+                { variant:"12/256", price:140000,inst:"4 Months Installment", image:"img/phones/vivo-v50-12256.jpg", colors:["Black","Silver"] },
+                { variant:"12/512", price:150000, image:"img/phones/vivo-v50-12512.jpg", colors:["Black","Silver"] }
+            ],
+                "Vivo V60 Lite": [
+                { variant:"8/256", price:77000,inst:"4 Months Installment", image:"img/phones/vivo-v60lite-8256.jpg", colors:["Black","Blue"] },
+                { variant:"12/256", price:95000, image:"img/phones/vivo-v60lite-12256.jpg", colors:["Black","Blue"] }
+            ],
+            "Vivo V60": [
+                { variant:"12/256", price:150000,inst:"4 Months Installment", image:"img/phones/vivo-v60-12256.jpg", colors:["Black","Silver"] },
+                { variant:"12/512", price:160000, image:"img/phones/vivo-v60-12512.jpg", colors:["Black","Silver"] }
+            ],
+            "Vivo X200 FE": [
+                { variant:"12/512", price:220000,inst:"4 Months Installment", image:"img/phones/vivo-x200fe-12512.jpg", colors:["Black","Silver"] }
+            ],
+            "Vivo X200 Pro": [
+                { variant:"16/512", price:330000,inst:"5 Months Installment", image:"img/phones/vivo-x200pro-16512.jpg", colors:["Black","Gold"] }
+            ],
+            "Vivo X Fold 5": [
+                { variant:"16/512", price:570000,inst:"6 Months Installment", image:"img/phones/vivo-xfold5-16512.jpg", colors:["Black","Gold"] }
+            ],
+            // INFINIX Models
+            "Infinix Smart 8": [
+                { variant:"2/64", price:20000,inst:"3 Months Installment", image:"img/phones/infinix-smart8-264.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Smart 10": [
+                { variant:"4/64", price:24000,inst:"3 Months Installment", image:"img/phones/infinix-smart10-464.jpg", colors:["Black","Green"] }
+            ],
+            "Infinix Smart 10 Plus": [
+                { variant:"4/128", price:28000,inst:"3 Months Installment", image:"img/phones/infinix-smart10plus-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Smart 9": [
+                { variant:"4/128", price:27000,inst:"4 Months Installment", image:"img/phones/infinix-smart9-4128.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Hot 50i": [
+                { variant:"6/128", price:31000,inst:"4 Months Installment", image:"img/phones/infinix-hot50i-6128.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Hot 60 Pro": [
+                { variant:"8/128", price:46000,inst:"3 Months Installment", image:"img/phones/infinix-hot60pro-8128.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Hot 60 Pro Plus": [
+                { variant:"8/256", price:60000,inst:"3 Months Installment", image:"img/phones/infinix-hot60proplus-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Hot 60i": [
+                { variant:"6/128", price:33000,inst:"3 Months Installment", image:"img/phones/infinix-hot60i-6128.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Hot 50": [
+                { variant:"8/128", price:40000,inst:"4 Months Installment", image:"img/phones/infinix-hot50-8128.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Hot 50 Pro": [
+                { variant:"8/128", price:42000,inst:"4 Months Installment", image:"img/phones/infinix-hot50pro-8128.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Hot 50 Pro Plus": [
+                { variant:"8/256", price:55000,inst:"4 Months Installment", image:"img/phones/infinix-hot50proplus-8256.jpg", colors:["Black","Blue"] }
+            ],
+            "Infinix Note 50": [
+                { variant:"8/256", price:65000,inst:"3 Months Installment", image:"img/phones/infinix-note50-8256.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Note 50 Pro": [
+                { variant:"12/256", price:80000,inst:"3 Months Installment", image:"img/phones/infinix-note50pro-12256.jpg", colors:["Black","Silver"] }
+            ],
+            "Infinix Zero 40": [
+                { variant:"8/256", price:65000,inst:"5 Months Installment", image:"img/phones/infinix-zero40-8256.jpg", colors:["Black","Blue"] }
+            ],
+            // ITEL Models
+            "Itel A50C": [
+                { variant: "2/64", price: 16000,inst:"3 Months Installment", image: "img/phones/itel-a50c-264.jpg", colors: ["Black", "Blue"] }
+            ],
+            "Itel A90": [
+                { variant: "4/64", price: 19000,inst:"3 Months Installment", image: "img/phones/itel-a90-464.jpg", colors: ["Black", "Blue"] },
+                { variant: "4/128", price: 21000,inst:"4 Months Installment", image: "img/phones/itel-a90-4128.jpg", colors: ["Black", "Blue"] }
+            ],
+            "Itel P70": [
+                { variant: "4/128", price: 25000,inst:"6 Months Installment", image: "img/phones/itel-p70-4128.jpg", colors: ["Black", "Gold"] }
+            ],
+            "Itel A80": [
+                { variant: "3/128", price: 23000,inst:"6 Months Installment", image: "img/phones/itel-a80-3128.jpg", colors: ["Black", "Blue"] }
+            ],
+            "Itel P65": [
+                { variant: "4/128", price: 28000,inst:"3 Months Installment", image: "img/phones/itel-p65-4128.jpg", colors: ["Black", "Blue"] }
+            ],
+            "Itel City 100": [
+                { variant: "6/128", price: 27000,inst:"4 Months Installment", image: "img/phones/itel-city100-6128.jpg", colors:["Black", "Blue"] }
+            ],
+            "Itel New S25": [
+                { variant: "6/128", price: 30000,inst:"4 Months Installment", image: "img/phones/itel-news25-6128.jpg", colors:["Black", "Blue"] }
+            ],
+            "Itel S25": [
+                { variant: "8/128", price: 34000,inst:"4 Months Installment", image: "img/phones/itel-s25-8128.jpg", colors:["Black", "Gold"] }
+            ],
+            "Itel New S25 Ultra": [
+                { variant: "8/256", price: 45000,inst:"5 Months Installment", image: "img/phones/itel-news25ultra-8256.jpg", colors:["Black", "Silver"] }
+           ],
+            "Itel S26 Ultra": [
+                { variant: "8/256", price: 50000,inst:"3 Months Installment", image: "img/phones/itel-s26-8128.jpg", colors:["Black", "Gold"] }
+              ]
+        };
+
+        // Global variables to store selected options
+        let selectedModel = '';
+        let selectedVariant = null;
+        let selectedColor = '';
+
+        // Build company dropdown
+        const companies = [...new Set(Object.keys(phoneData).map(m => m.split(" ")[0]))];
+        const companySelect = document.getElementById("companySelect");
+        companies.forEach(c => {
+            let opt = document.createElement("option");
+            opt.value = c;
+            opt.textContent = c;
+            companySelect.appendChild(opt);
+        });
+
+        function showProducts(filter) {
+            productsGrid.innerHTML = "";
+            for (let model in phoneData) {
+                if (filter && !model.startsWith(filter)) continue;
+                const main = phoneData[model][0]; // first variant
+                let col = document.createElement("div");
+                col.className = "col-md-4";
+                col.innerHTML = `
+                    <div class="product-item" data-model="${model}">
+                        <img src="${main.image}" alt="${model}">
+                        <h5>${model}</h5>
+                        <p>Starting from PKR ${main.price.toLocaleString("en-PK")}</p>
+                        ${main.inst ? `<small class="text-success fw-semibold">${main.inst}</small>` : ""}
+                    </div>
+                `;
+                productsGrid.appendChild(col);
+            }
+        }
+
+        showProducts();
+        companySelect.addEventListener("change", () => showProducts(companySelect.value));
+
+        // Modal logic
+        const productModal = new bootstrap.Modal(document.getElementById("productModal"));
+        const selectionStatus = document.getElementById("selectionStatus");
+        const leaseBtn = document.getElementById("leaseBtn");
+
+        productsGrid.addEventListener("click", e => {
+            const item = e.target.closest(".product-item");
+            if (!item) return;
+
+            selectedModel = item.dataset.model;
+            const variants = phoneData[selectedModel];
+
+            document.querySelector(".modal-title").textContent = selectedModel;
+
+            // Reset selections
+            selectedVariant = null;
+            selectedColor = ''; // Reset selected color
+            updateLeaseButton();
+
+            // Show default image (first variant) and select it
+            document.getElementById("modalImage").src = variants[0].image;
+            selectedVariant = variants[0]; // Set first variant as default selected
+
+            // Build variant list
+            const list = document.querySelector(".variant-list");
+            list.innerHTML = "";
+            variants.forEach((v, idx) => {
+                const variantItem = document.createElement("div");
+                variantItem.className = `list-group-item variant-item ${idx === 0 ? 'selected' : ''}`;
+                variantItem.dataset.index = idx;
+                variantItem.innerHTML = `
+                    <span>${v.variant}</span>
+                    <span class="fw-bold">PKR ${v.price.toLocaleString("en-PK")}</span>
+                `;
+                list.appendChild(variantItem);
+            });
+
+            // Show colors for the initially selected variant (first one)
+            updateColorOptions(variants[0].colors);
+
+            // Add click listener to each variant
+            document.querySelectorAll(".variant-item").forEach(el => {
+                el.addEventListener("click", () => {
+                    // Unselect all variants
+                    document.querySelectorAll(".variant-item").forEach(x => x.classList.remove("selected"));
+                    el.classList.add("selected");
+
+                    const idx = el.getAttribute("data-index");
+                    const variantData = variants[idx];
+                    selectedVariant = variantData; // Update selected variant
+
+                    // Update image
+                    document.getElementById("modalImage").src = variantData.image;
+
+                    // Update colors for the newly selected variant
+                    updateColorOptions(variantData.colors);
+
+                    // Reset selected color for the new variant, then auto-select first if available
+                    selectedColor = '';
+                    if (variantData.colors && variantData.colors.length > 0) {
+                        const firstColorOption = document.getElementById("modalColors").querySelector(".color-option-text");
+                        if (firstColorOption) {
+                            firstColorOption.classList.add("selected");
+                            firstColorOption.querySelector('i').classList.remove('d-none');
+                            selectedColor = firstColorOption.dataset.color;
+                        }
+                    }
+                    updateLeaseButton();
+                });
+            });
+
+            productModal.show();
+        });
+
+        function updateColorOptions(colors) {
+            const colorDiv = document.getElementById("modalColors");
+            colorDiv.innerHTML = "";
+            if (!colors || colors.length === 0) {
+                colorDiv.innerHTML = '<small class="text-muted">No color options for this variant.</small>';
+                return;
+            }
+
+            colors.forEach(c => {
+                let colorTextOption = document.createElement("div");
+                colorTextOption.className = "color-option-text"; // Use new class for text options
+                colorTextOption.dataset.color = c; // Store color name
+                colorTextOption.innerHTML = `
+                    <span class="color-name-text">${c}</span>
+                    <i class="fas fa-check-circle d-none"></i> <!-- Checkmark icon, initially hidden -->
+                `;
+                colorDiv.appendChild(colorTextOption);
+
+                colorTextOption.addEventListener("click", () => {
+                    // Unselect all colors and hide checkmarks
+                    document.querySelectorAll(".color-option-text").forEach(x => {
+                        x.classList.remove("selected");
+                        x.querySelector('i').classList.add('d-none'); // Hide checkmark
+                    });
+                    colorTextOption.classList.add("selected");
+                    colorTextOption.querySelector('i').classList.remove('d-none'); // Show checkmark
+                    selectedColor = colorTextOption.dataset.color; // Update selected color
+                    updateLeaseButton();
+                });
+            });
+
+            // After creating options, if a color is already selected, mark it
+            if (selectedColor) {
+                const preSelectedOption = colorDiv.querySelector(`.color-option-text[data-color="${selectedColor}"]`);
+                if (preSelectedOption) {
+                    preSelectedOption.classList.add("selected");
+                    preSelectedOption.querySelector('i').classList.remove('d-none');
+                }
+            } else if (colors.length > 0) {
+                // If no color is selected but colors are available, auto-select the first one
+                const firstColorOption = colorDiv.querySelector('.color-option-text');
+                if (firstColorOption) {
+                    firstColorOption.classList.add('selected');
+                    firstColorOption.querySelector('i').classList.remove('d-none');
+                    selectedColor = firstColorOption.dataset.color;
+                }
+            }
+        }
+
+        function updateLeaseButton() {
+            if (selectedModel && selectedVariant && selectedColor) {
+                selectionStatus.textContent = `${selectedModel} (${selectedVariant.variant}) - ${selectedColor} selected.`;
+                const queryParams = new URLSearchParams({
+                    model: selectedModel,
+                    variant: selectedVariant.variant,
+                    color: selectedColor
+                }).toString();
+                leaseBtn.href = `lease-form.html?${queryParams}`;
+                leaseBtn.classList.remove('disabled'); // Enable button
+            } else {
+                selectionStatus.textContent = "Choose your variant & color to proceed";
+                leaseBtn.href = '#';
+                leaseBtn.classList.add('disabled'); // Disable button
+            }
+        }
+
+        // Initialize button state when modal is opened (after the product details are loaded)
+        document.getElementById('productModal').addEventListener('shown.bs.modal', function () {
+             updateLeaseButton();
+        });
+
+    </script>
+</body>
+</html>

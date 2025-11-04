@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asaan Lease Form - Apply Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+ <style>
+:root {
+  --primary: #f97316; /* Orange 500 */
+  --secondary: #fbbf24; /* Amber 400 */
+  --dark: #1f2937; /* Darker charcoal */
+  --light: #fff;
+  --gradient: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
+  --shadow-lg: 0 15px 35px rgba(0,0,0,0.15);
+  --border-radius-main: 20px;
+  --input-border-radius: 10px;
+}
+
+/* Global Typography & Background */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: #f0f2f5; /* A softer, modern background */
+  color: var(--dark);
+  line-height: 1.6;
+  font-weight: 700; /* Bold body text */
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 700; /* Bold links */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark);
+  font-weight: 800; /* Bold headings */
+}
+
+/* Navbar */
+.navbar {
+  background: #fff !important;
+  padding: 15px 0;
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+.navbar-brand img {
+  height: 100px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+.navbar-brand img:hover { transform: scale(1.03); }
+.nav-link {
+  font-weight: 700; /* Bold nav links */
+  font-size: 1.05rem;
+  color: var(--dark) !important;
+  margin: 0 15px;
+  padding-bottom: 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.2s ease;
+}
+.nav-link:hover { color: var(--primary) !important; transform: translateY(-2px); }
+.nav-link.active {
+  color: var(--primary) !important;
+  border-bottom: 3px solid var(--primary);
+}
+
+/* Form Container */
+.container-form {
+  width: 95%;
+  max-width: 960px;
+  margin: 60px auto;
+  background: var(--light);
+  padding: 40px 50px;
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.container-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: var(--gradient);
+}
+
+/* Headings & Fieldset */
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark);
+  font-weight: 800;
+  font-size: 2.8rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+fieldset {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--input-border-radius);
+  padding: 25px;
+  margin-bottom: 35px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+fieldset:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+}
+legend {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--primary);
+  padding: 0 15px;
+  margin-bottom: 20px;
+  width: auto;
+  border-bottom: none;
+}
+legend::after { content: ' •'; color: var(--dark); }
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700; /* Bold labels */
+  color: var(--dark);
+  font-size: 1.05rem;
+}
+
+/* Remove icons entirely */
+.input-icon { display: none; }
+
+/* Inputs & Textareas */
+input, select, textarea {
+  width: 100%;
+  padding: 12px 15px; /* No extra padding for icons */
+  border-radius: var(--input-border-radius);
+  border: 1px solid #dcdcdc;
+  font-size: 1rem;
+  background-color: #fcfcfc;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+  font-weight: 700; /* Bold input text */
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(249,115,22,0.2), inset 0 2px 5px rgba(0,0,0,0.06);
+  outline: none;
+}
+textarea { resize: vertical; min-height: 80px; padding-top: 15px; }
+
+/* Radio Buttons */
+.form-check-input:checked { background-color: var(--primary); border-color: var(--primary); }
+.form-check-label { font-weight: 700; color: var(--dark); font-size: 1rem; cursor: pointer; }
+.form-check-inline { margin-right: 20px; }
+
+/* Submit Button */
+button[type="submit"] {
+  background: var(--gradient);
+  color: #fff;
+  padding: 16px 30px;
+  border: none;
+  border-radius: var(--input-border-radius);
+  font-size: 1.25rem;
+  font-weight: 700; /* Bold text */
+  cursor: pointer;
+  width: 100%;
+  margin-top: 40px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+button[type="submit"]:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  color: var(--primary);
+  background: var(--dark);
+}
+
+/* Conditional Section */
+#leaseDetails {
+  border-left: 3px solid var(--secondary);
+  padding-left: 20px;
+  margin-top: 20px;
+  background-color: #fffdf5;
+  border-radius: var(--input-border-radius);
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+/* Footer */
+footer {
+  background: var(--dark);
+  color: #e2e8f0;
+  padding: 70px 0 40px;
+  margin-top: 100px;
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: var(--gradient);
+}
+footer h5, footer h6 { color: #fff; font-weight: 700; margin-bottom: 20px; }
+footer a { color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; }
+footer a:hover { color: var(--secondary); }
+footer .social-icons { display: flex; gap: 18px; margin-top: 20px; }
+footer .social-icons a { color: var(--secondary); font-size: 1.6rem; }
+footer .social-icons a:hover { color: var(--primary); transform: translateY(-3px) scale(1.1); }
+.footer-bottom { border-top: 1px solid #374151; padding-top: 25px; margin-top: 40px; font-size: 0.9rem; color: #a0aec0; }
+
+/* Floating Chat Button */
+.chat-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.chat-btn:hover {
+  background: var(--dark);
+  color: var(--primary);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.45);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .navbar-brand img { height: 85px; }
+  h2 { font-size: 2.2rem; margin-bottom: 30px;}
+  legend { font-size: 1.4rem; }
+  .container-form { padding: 30px; margin: 40px auto; }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img { height: 70px; }
+  h2 { font-size: 1.8rem; margin-bottom: 25px; }
+  legend { font-size: 1.2rem; }
+  .container-form { padding: 20px; margin: 25px auto; width: 98%; }
+  fieldset { padding: 15px; margin-bottom: 25px; }
+  button[type="submit"] { padding: 12px 20px; font-size: 1.1rem; }
+  footer { text-align: center; padding: 50px 0 20px; margin-top: 60px;}
+  footer .social-icons { justify-content: center; }
+}
+
+@media (max-width: 576px) {
+  footer form.newsletter-form { flex-direction: column; align-items: stretch; }
+  footer .form-control, footer .btn-primary { width: 100%; max-width: none; }
+}
+</style>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.png" alt="Asaan Lease Logo"> <!-- Corrected logo path -->
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="bestsellers.html">Best Sellers</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News & Events</a></li>
+           <li class="nav-item"><a class="nav-link" href="lease-terms.html">Leasing Terms</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Apply Lease</a></li> <!-- Added active class for this page -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Form Section -->
+  <div class="container-form">
+    <h2>Lease Application Form <br> <small class="text-muted" style="font-size: 1.5rem; font-weight: 600;">لیز کی درخواست فارم</small></h2>
+    <!-- NEW HEADING ADDED HERE -->
+    <h4 class="text-center text-danger mb-4" style="font-weight: 700;">For Peshawar-Based Customers Only <br> صرف پشاور میں مقیم صارفین کے لیے</h4>
+    <form id="leaseForm">
+      <!-- Personal Information -->
+      <fieldset>
+        <legend>Personal Information / ذاتی معلومات</legend>
+
+        <div class="form-group">
+          <label for="fullName">Full Name / پورا نام</label>
+          <input type="text" id="fullName" placeholder="Enter your full name / پورا نام درج کریں" required>
+          <i class="fas fa-user input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="fatherHusbandName">Father’s / Husband’s Name / والد یا شوہر کا نام</label>
+          <input type="text" id="fatherHusbandName" placeholder="Enter name / نام درج کریں" required>
+          <i class="fas fa-user-friends input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="cnicNumber">CNIC Number / شناختی کارڈ نمبر</label>
+          <input type="text" id="cnicNumber" pattern="\d{5}-\d{7}-\d" placeholder="e.g. 12345-6789012-3 / مثال: 12345-6789012-3" required>
+          <i class="fas fa-id-card input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth / تاریخ پیدائش</label>
+          <input type="date" id="dob" required>
+          <!-- Date inputs don't typically have icons inside, so no icon for this one -->
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number / فون نمبر</label>
+          <input type="tel" id="phoneNumber" pattern="[0-9]{11}" placeholder="e.g. 03001234567 / فون نمبر درج کریں" required class="input-with-icon">
+          <i class="fas fa-phone input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="permanentAddress">Permanent Address / مستقل پتہ</label>
+          <textarea id="permanentAddress" placeholder="Enter your permanent address / مستقل پتہ درج کریں" rows="3" required></textarea>
+          <i class="fas fa-map-marker-alt input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="temporaryAddress">Temporary Address / عارضی پتہ</label>
+          <textarea id="temporaryAddress" placeholder="Enter your temporary address / عارضی پتہ درج کریں" rows="3"></textarea>
+          <i class="fas fa-map-pin input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="residenceStatus">Residence Status / رہائش کی حیثیت</label>
+          <select id="residenceStatus" required>
+            <option value="">Select Status</option>
+            <option>Owner / مالک</option>
+            <option>Rented / کرایہ پر</option>
+          </select>
+          <!-- Select inputs typically don't have icons inside, but for consistency if desired: -->
+          <!-- <i class="fas fa-home input-icon"></i> -->
+        </div>
+
+        <div class="form-group">
+          <label for="officeAddress">Office Address / دفتر کا پتہ</label>
+          <textarea id="officeAddress" placeholder="Enter your office address / دفتر کا پتہ درج کریں" rows="3"></textarea>
+          <i class="fas fa-building input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="officePhoneNumber">Office Phone Number / دفتر کا فون نمبر</label>
+          <input type="tel" id="officePhoneNumber" pattern="[0-9]{11}" placeholder="Enter office phone number / دفتر کا فون نمبر درج کریں" class="input-with-icon">
+          <i class="fas fa-phone-alt input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="designation">Designation at Office / دفتر میں عہدہ</label>
+          <input type="text" id="designation" placeholder="Enter designation / عہدہ درج کریں">
+          <i class="fas fa-briefcase input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="monthlyIncome">Monthly Income / ماہانہ آمدنی</label>
+          <input type="number" id="monthlyIncome" placeholder="Enter your monthly income / ماہانہ آمدنی درج کریں" min="0" required>
+          <i class="fas fa-dollar-sign input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label class="mb-2">Marital Status / ازدواجی حیثیت</label>
+          <div class="mb-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="marital" id="single" value="single" required>
+              <label class="form-check-label" for="single">Single / غیر شادی شدہ</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="marital" id="married" value="married">
+              <label class="form-check-label" for="married">Married / شادی شدہ</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="marital" id="divorced" value="divorced">
+              <label class="form-check-label" for="divorced">Divorced / طلاق یافتہ</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="marital" id="widowed" value="widowed">
+              <label class="form-check-label" for="widowed">Widowed / بیوہ</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Lease History -->
+      <fieldset>
+        <legend>Lease History / سابقہ لیز</legend>
+
+        <div class="form-group">
+          <label class="mb-2">Have you ever leased a phone before? / کیا آپ نے پہلے کبھی فون لیز پر لیا ہے؟</label>
+          <div class="mb-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="leasedBefore" id="leasedYes" value="yes">
+              <label class="form-check-label" for="leasedYes">Yes / جی ہاں</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="leasedBefore" id="leasedNo" value="no" checked>
+              <label class="form-check-label" for="leasedNo">No / نہیں</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="leaseDetails" style="display:none;">
+          <div class="form-group">
+            <label for="pastProductName">Product Name / پروڈکٹ کا نام</label>
+            <input type="text" id="pastProductName" placeholder="Enter product name / پروڈکٹ کا نام درج کریں">
+            <i class="fas fa-mobile-alt input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="pastLeasingCompany">Leasing Company / کمپنی کا نام</label>
+            <input type="text" id="pastLeasingCompany" placeholder="Enter company name / کمپنی کا نام درج کریں">
+            <i class="fas fa-building input-icon"></i>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Lease Details -->
+      <fieldset>
+        <legend>Lease Details / لیز کی تفصیلات</legend>
+
+        <div class="form-group">
+          <label for="leaseDuration">Lease Duration / لیز کی مدت</label>
+          <select id="leaseDuration" required>
+            <option value="">Select Duration</option>
+            <option>3 Months / 3 ماہ</option>
+            <option>4 Months / 4 ماہ</option>
+            <option>5 Months / 5 ماہ</option>
+            <option>6 Months / 6 ماہ</option>
+          </select>
+          <!-- <i class="fas fa-clock input-icon"></i> -->
+        </div>
+      </fieldset>
+
+      <!-- Guarantor 1 Info -->
+      <fieldset>
+        <legend>Guarantor 1 Information / ضامن 1 کی معلومات</legend>
+
+        <div class="form-group">
+          <label for="guarantor1FullName">Guarantor 1 Full Name / ضامن 1 کا پورا نام</label>
+          <input type="text" id="guarantor1FullName" placeholder="Enter guarantor's full name / ضامن کا پورا نام درج کریں" required>
+          <i class="fas fa-user input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor1FatherName">Guarantor 1 Father’s Name / ضامن 1 کے والد کا نام</label>
+          <input type="text" id="guarantor1FatherName" placeholder="Enter guarantor's father’s name / ضامن کے والد کا نام درج کریں" required>
+          <i class="fas fa-user-friends input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor1Cnic">Guarantor 1 CNIC Number / ضامن 1 کا شناختی کارڈ نمبر</label>
+          <input type="text" id="guarantor1Cnic" pattern="\d{5}-\d{7}-\d" placeholder="e.g. 12345-6789012-3 / مثال: 12345-6789012-3" required>
+          <i class="fas fa-id-card input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor1Phone">Guarantor 1 Phone Number / ضامن 1 کا فون نمبر</label>
+          <input type="tel" id="guarantor1Phone" pattern="[0-9]{11}" placeholder="Enter guarantor's phone number / ضامن کا فون نمبر درج کریں" required class="input-with-icon">
+          <i class="fas fa-phone input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor1PermanentAddress">Guarantor 1 Permanent Address / ضامن 1 کا مستقل پتہ</label>
+          <textarea id="guarantor1PermanentAddress" placeholder="Enter guarantor's permanent address / ضامن کا مستقل پتہ درج کریں" rows="3" required></textarea>
+          <i class="fas fa-map-marker-alt input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor1TemporaryAddress">Guarantor 1 Temporary Address / ضامن 1 کا عارضی پتہ</label>
+          <textarea id="guarantor1TemporaryAddress" placeholder="Enter guarantor's temporary address / ضامن کا عارضی پتہ درج کریں" rows="3"></textarea>
+          <i class="fas fa-map-pin input-icon"></i>
+        </div>
+      </fieldset>
+
+      <!-- Guarantor 2 Info -->
+       <fieldset>
+        <legend>Guarantor 2 Information / ضامن 2 کی معلومات</legend>
+
+        <div class="form-group">
+          <label for="guarantor2FullName">Guarantor 2 Full Name / ضامن 2 کا پورا نام</label>
+          <input type="text" id="guarantor2FullName" placeholder="Enter guarantor's full name / ضامن کا پورا نام درج کریں">
+          <i class="fas fa-user input-icon"></i>
+        </div>
+
+        <div class="form-group">
+          <label for="guarantor2FatherName">Guarantor 2 Father’s Name / ضامن 2 کے والد کا نام</label>
+          <input type="text" id="guarantor2FatherName" placeholder="Enter guarantor's father’s name / ضامن کے والد کا نام درج کریں">
+          <i class="fas fa-user-friends input-icon"></i>
+        </div>
+
+        <div class="form-group">
+            <label for="guarantor2Cnic">Guarantor 2 CNIC Number / ضامن 2 کا شناختی کارڈ نمبر</label>
+            <input type="text" id="guarantor2Cnic" pattern="\d{5}-\d{7}-\d" placeholder="e.g. 12345-6789012-3 / مثال: 12345-6789012-3">
+            <i class="fas fa-id-card input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="guarantor2Phone">Guarantor 2 Phone Number / ضامن 2 کا فون نمبر</label>
+            <input type="tel" id="guarantor2Phone" pattern="[0-9]{11}" placeholder="Enter guarantor's phone number / ضامن کا فون نمبر درج کریں" class="input-with-icon">
+            <i class="fas fa-phone input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="guarantor2PermanentAddress">Guarantor 2 Permanent Address / ضامن 2 کا مستقل پتہ</label>
+            <textarea id="guarantor2PermanentAddress" placeholder="Enter guarantor's permanent address / ضامن کا مستقل پتہ درج کریں" rows="3"></textarea>
+            <i class="fas fa-map-marker-alt input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="guarantor2TemporaryAddress">Guarantor 2 Temporary Address / ضامن 2 کا عارضی پتہ</label>
+            <textarea id="guarantor2TemporaryAddress" placeholder="Enter guarantor's temporary address / ضامن کا عارضی پتہ درج کریں" rows="3"></textarea>
+            <i class="fas fa-map-pin input-icon"></i>
+          </div>
+        </fieldset>
+
+
+        <!-- Phone Details -->
+        <fieldset>
+          <legend>Phone Details / فون کی تفصیلات</legend>
+
+          <div class="form-group">
+            <label for="make">Make / کمپنی</label>
+            <select id="make" required>
+              <option value="">Select Make / کمپنی منتخب کریں</option>
+              <option value="iphone">iPhone</option>
+              <option value="samsung">Samsung</option>
+              <option value="vivo">Vivo</option>
+              <option value="tecno">Tecno</option>
+              <option value="oppo">Oppo</option>
+              <option value="infinix">Infinix</option>
+              <option value="redmi">Xiaomi / Redmi</option>
+              <option value="sego">Sego</option>
+              <option value="honor">Honor</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="model">Model / ماڈل</label>
+            <select id="model" required>
+              <option value="">Select Model / ماڈل منتخب کریں</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="variant">Variant / ویرینٹ</label>
+            <select id="variant" required>
+              <option value="">Select Variant / ویرینٹ منتخب کریں</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="storage">Storage / اسٹوریج</label>
+            <select id="storage" required>
+              <option value="">Select Storage / اسٹوریج منتخب کریں</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- NEW SIGNATURE & THUMB IMPRESSION FIELDSET -->
+        <fieldset>
+            <legend>Signature & Thumb Impression / دستخط اور انگوٹھے کا نشان</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="thumbImpression">Thumb Impression / انگوٹھے کا نشان</label>
+                        <div id="thumbImpression" style="border: 2px dashed #ccc; height: 150px; background-color: #f8f9fa; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+                            Place thumb impression here
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="signature">Signature / دستخط</label>
+                        <div id="signature" style="border: 2px dashed #ccc; height: 150px; background-color: #f8f9fa; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+                            Sign here
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit">Submit Application / درخواست جمع کروائیں</button>
+      </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row gy-5 mb-4">
+          <div class="col-md-4">
+            <h5>Asaan Lease</h5>
+            <p class="muted-sm">Making smartphones accessible in Pakistan with simple leasing, transparent terms, and official warranty for everyone.</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <h6>Company</h6>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Partnerships</a>
+          </div>
+          <div class="col-md-2 col-6">
+            <h6>Support</h6>
+            <a href="lease-terms.html">Lease Terms</a>
+            <a href="#">Upgrade Policy</a>
+            <a href="#">Warranty Info</a>
+            <a href="#">FAQ</a>
+          </div>
+          <div class="col-md-4">
+            <h6>Stay Updated</h6>
+            <p class="muted-sm">Subscribe to our newsletter for the latest deals and phone updates.</p>
+            <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" class="newsletter-form"> <!-- Changed class here -->
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Email for newsletter">
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+          <div class="muted-sm mb-2 mb-md-0">© <span id="copyYear"></span> Asaan Lease — All rights reserved.</div>
+          <div class="muted-sm">Designed by Azlan Khan</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Chat -->
+    <a href="chatbot.html" class="chat-btn" aria-label="Chat with us">💬</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('copyYear').textContent = new Date().getFullYear();
+
+      // Toggle lease history details
+      document.querySelectorAll('input[name="leasedBefore"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          const leaseDetails = document.getElementById('leaseDetails');
+          const pastProductInput = document.getElementById('pastProductName');
+          const pastCompanyInput = document.getElementById('pastLeasingCompany');
+
+          if (this.value === 'yes') {
+            leaseDetails.style.display = 'block';
+            pastProductInput.setAttribute('required', 'required');
+            pastCompanyInput.setAttribute('required', 'required');
+          } else {
+            leaseDetails.style.display = 'none';
+            pastProductInput.removeAttribute('required');
+            pastCompanyInput.removeAttribute('required');
+            // Optionally clear values when hidden
+            pastProductInput.value = '';
+            pastCompanyInput.value = '';
+          }
+        });
+      });
+
+      // Dynamic phone selection logic
+      const phoneData = {
+        iphone: {
+          models: {
+            'iPhone 15 Pro Max': {
+              variants: ['Natural Titanium', 'Blue Titanium', 'White Titanium', 'Black Titanium'],
+              storage: ['256GB', '512GB', '1TB']
+            },
+            'iPhone 15 Pro': {
+              variants: ['Natural Titanium', 'Blue Titanium', 'White Titanium', 'Black Titanium'],
+              storage: ['128GB', '256GB', '512GB', '1TB']
+            },
+            'iPhone 15 Plus': {
+              variants: ['Blue', 'Pink', 'Yellow', 'Green', 'Black'],
+              storage: ['128GB', '256GB', '512GB']
+            },
+            'iPhone 15': {
+              variants: ['Blue', 'Pink', 'Yellow', 'Green', 'Black'],
+              storage: ['128GB', '256GB', '512GB']
+            },
+            'iPhone 14 Pro Max': {
+              variants: ['Deep Purple', 'Gold', 'Silver', 'Space Black'],
+              storage: ['128GB', '256GB', '512GB', '1TB']
+            }
+          }
+        },
+        samsung: {
+          models: {
+              'Samsung Galaxy A07': { // Adjusted model name to match products.html
+              variants: ['Black', 'Blue'], // Adjusted variants to be colors from products.html
+              storage: ['4/64', '4/128', '6/128'] // Adjusted storage to be variants from products.html
+            },
+            'Samsung Galaxy A17': {
+              variants: ['Black', 'Green'],
+              storage: ['6/128', '8/256']
+            },
+            'Samsung Galaxy A26': {
+              variants: ['Black', 'Mint', 'White', 'Peach'],
+              storage: ['8/256']
+            },
+            'Samsung Galaxy A36': {
+              variants: ['Black', 'Lime', 'Lavender'],
+              storage: ['8/256']
+            },
+            'Samsung Galaxy A55': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/256']
+            },
+            'Samsung Galaxy A56': {
+              variants: ['Black', 'Silver', 'Olive'],
+              storage: ['8/256', '12/256']
+            },
+             'Samsung Galaxy S24 FE': {
+              variants: ['Black', 'White'],
+              storage: ['8/256']
+            },
+            'Samsung Galaxy S25 FE': {
+              variants: ['Black', 'White'],
+              storage: ['8/512']
+            },
+            'Samsung Galaxy S25': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            'Samsung Galaxy S25 Ultra': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            // 'Galaxy Z Fold5': { // Not present in products.html
+            //   variants: ['Icy Blue', 'Phantom Black', 'Cream'],
+            //   storage: ['256GB', '512GB', '1TB']
+            // }
+          }
+        },
+        vivo: {
+          models: {
+             'Vivo Y04': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64', '4/128']
+            },
+             'Vivo Y19s': {
+              variants: ['Black', 'Green'],
+              storage: ['4/128', '6/128']
+            },
+              'Vivo Y19s Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128']
+            },
+              'Vivo Y29': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/128', '8/256']
+            },
+            'Vivo Y200': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/128', '8/256']
+            },
+            'Vivo Y400': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+            // 'V30 Pro': { // Not present in products.html
+            //   variants: ['Bloom White', 'Waving Aqua', 'Volcanic Grey'],
+            //   storage: ['256GB', '512GB']
+            // },
+            'Vivo V50 Lite': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256', '12/256']
+            },
+            'Vivo V50': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/256', '12/512']
+            },
+            'Vivo V60': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/256', '12/512']
+            },
+            'Vivo X200 FE': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            'Vivo X200 Pro': {
+              variants: ['Black', 'Gold'],
+              storage: ['16/512']
+            },
+            'Vivo X Fold 5': {
+              variants: ['Black', 'Gold'],
+              storage: ['16/512']
+            }
+          }
+        },
+        tecno: {
+          models: {
+               'Tecno Spark Go': {
+              variants: ['Black', 'Blue'],
+              storage: ['2/64']
+            },
+             'Tecno Spark Go1': {
+              variants: ['Black', 'Blue'],
+              storage: ['3/64', '4/64', '4/128']
+            },
+             'Tecno Spark Go2': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64']
+            },
+            'Tecno Spark 30C': {
+              variants: ['Black', 'Green'],
+              storage: ['6/128']
+            },
+            'Tecno Spark 30': {
+              variants: ['Black', 'Green'],
+              storage: ['8/128']
+            },
+            'Tecno Spark 30 Pro': {
+              variants: ['Black', 'Green'],
+              storage: ['8/128']
+            },
+            'Tecno Spark 40': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128']
+            },
+            'Tecno Spark 40C': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/128']
+            },
+            'Tecno Spark 40 Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+            'Tecno Spark 40 Pro Plus': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+            'Tecno Camon 40': {
+              variants: ['Black', 'Gold'],
+              storage: ['8/256']
+            },
+          }
+        },
+        oppo: {
+          models: {
+             'Oppo A5i': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64', '4/128']
+            },
+            'Oppo A5x': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64']
+            },
+            'Oppo A3': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128', '6/256']
+            },
+            'Oppo A5 Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/128', '8/256']
+            },
+            'Oppo A6 Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+            'Oppo Reno 14F': {
+              variants: ['Black', 'Gold'],
+              storage: ['8/256']
+            },
+            'Oppo Reno 14 5G': {
+              variants: ['Black', 'Gold'],
+              storage: ['12/256', '12/512']
+            },
+            'Oppo Reno 14 Pro 5G': {
+              variants: ['Black', 'Gold'],
+              storage: ['12/512']
+            },
+          }
+        },
+        infinix: {
+          models: {
+              'Infinix Smart 8': {
+              variants: ['Black', 'Blue'],
+              storage: ['2/64']
+            },
+            'Infinix Smart 10': {
+              variants: ['Black', 'Green'],
+              storage: ['4/64']
+            },
+            'Infinix Smart 10 Plus': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/128']
+            },
+            'Infinix Smart 9': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/128']
+            },
+            'Infinix Hot 50i': {
+              variants: ['Black', 'Silver'],
+              storage: ['6/128']
+            },
+            'Infinix Hot 60 Pro': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/128']
+            },
+             'Infinix Hot 60 Pro Plus': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/256']
+            },
+            'Infinix Hot 60i': {
+              variants: ['Black', 'Silver'],
+              storage: ['6/128']
+            },
+            'Infinix Hot 50': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/128']
+            },
+            'Infinix Hot 50 Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/128']
+            },
+            'Infinix Hot 50 Pro Plus': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+            'Infinix Note 50': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/256']
+            },
+            'Infinix Note 50 Pro': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/256']
+            },
+            'Infinix Zero 40': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256']
+            },
+          }
+        },
+        redmi: { // Xiaomi / Redmi
+          models: {
+            'Redmi A3X': {
+              variants: ['Black', 'Blue'],
+              storage: ['3/64']
+            },
+            'Redmi A5': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64', '4/128']
+            },
+            'Redmi 14C': {
+              variants: ['Black', 'Green'],
+              storage: ['4/128', '6/128']
+            },
+            'Redmi 15C': {
+              variants: ['Black', 'Green'],
+              storage: ['4/128', '6/128']
+            },
+            'Redmi 15': {
+              variants: ['Black', 'Green'],
+              storage: ['8/128']
+            },
+            'Redmi 13': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/128']
+            },
+            'Redmi Note 14': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/128', '8/256']
+            },
+            'Redmi Note 14 Pro': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256', '12/512']
+            },
+            'Redmi Note 13 Pro+': { // Corrected name to match products.html
+              variants: ['Black', 'Gold'],
+              storage: ['12/512']
+            },
+            'Redmi Note 14 Pro+': {
+              variants: ['Black', 'Gold'],
+              storage: ['12/512']
+            },
+             'Redmi Pad 2': {
+              variants: ['Black', 'Gray'], // Assuming these are colors for the pad
+              storage: ['8/256 WiFi', '8/256 4G'] // Adjusted to match products.html storage
+            },
+             'Xiaomi 14T': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            'Xiaomi 14T Pro': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            'Xiaomi 14': {
+              variants: ['Black', 'Silver'],
+              storage: ['12/512']
+            },
+            'Xiaomi 15 Ultra': {
+              variants: ['Black', 'Gold'],
+              storage: ['16/512']
+            },
+            'Xiaomi Pad 7': {
+              variants: ['Black', 'Gray'],
+              storage: ['8/256']
+            },
+            'Xiaomi Pad 7 Pro': {
+              variants: ['Black', 'Gray'],
+              storage: ['8/256']
+            },
+          }
+        },
+        sego: {
+          models: {
+            'Sego Zero 50': {
+              variants: ['Black', 'Blue'], // From products.html
+              storage: ['8/256']
+            },
+            'Sego Smart 9HD': {
+              variants: ['Black', 'Blue'],
+              storage: ['2/64']
+            },
+            'Sego S24': {
+              variants: ['Black', 'Silver'],
+              storage: ['4/128']
+            },
+            'Sego Neo 20': {
+              variants: ['Black', 'Blue'],
+              storage: ['3/64']
+            },
+            'Sego Note 60': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/128']
+            },
+            // 'Sego S10': { // Not in products.html
+            //   variants: ['Black', 'Blue', 'Green'],
+            //   storage: ['64GB', '128GB']
+            // },
+            // 'Sego E5': { // Not in products.html
+            //   variants: ['Grey', 'Pink'],
+            //   storage: ['32GB', '64GB']
+            // }
+          }
+        },
+        honor: {
+          models: {
+            'Honor X5B Plus': {
+              variants: ['Black', 'Blue'], // From products.html
+              storage: ['4/128']
+            },
+            'Honor X6C': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128', '6/256']
+            },
+             'Honor X7C': {
+              variants: ['Black', 'Blue'],
+              storage: ['8/256'] // Corrected from 6/256 to 8/256 to match products.html
+            },
+            'Honor X9C': {
+              variants: ['Black', 'Gold'],
+              storage: ['12/256']
+            }
+          }
+        },
+        // ITEL Models - Added to match products.html
+        itel: {
+          models: {
+            'Itel A50C': {
+              variants: ['Black', 'Blue'],
+              storage: ['2/64']
+            },
+            'Itel A90': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/64', '4/128']
+            },
+            'Itel P70': {
+              variants: ['Black', 'Gold'],
+              storage: ['4/128']
+            },
+            'Itel A80': {
+              variants: ['Black', 'Blue'],
+              storage: ['3/128']
+            },
+            'Itel P65': {
+              variants: ['Black', 'Blue'],
+              storage: ['4/128']
+            },
+            'Itel City 100': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128']
+            },
+            'Itel New S25': {
+              variants: ['Black', 'Blue'],
+              storage: ['6/128']
+            },
+            'Itel S25': {
+              variants: ['Black', 'Gold'],
+              storage: ['8/128']
+            },
+            'Itel New S25 Ultra': {
+              variants: ['Black', 'Silver'],
+              storage: ['8/256']
+            }
+          }
+        }
+      };
+
+
+      const makeSelect = document.getElementById('make');
+      const modelSelect = document.getElementById('model');
+      const variantSelect = document.getElementById('variant'); // This now represents 'color' from products page
+      const storageSelect = document.getElementById('storage'); // This now represents 'variant' (RAM/storage) from products page
+
+
+      function populateModels() {
+        modelSelect.innerHTML = '<option value="">Select Model / ماڈل منتخب کریں</option>';
+        variantSelect.innerHTML = '<option value="">Select Variant / ویرینٹ منتخب کریں</option>';
+        storageSelect.innerHTML = '<option value="">Select Storage / اسٹوریج منتخب کریں</option>';
+
+        const selectedMake = makeSelect.value;
+        if (selectedMake && phoneData[selectedMake]) {
+          for (const model in phoneData[selectedMake].models) {
+            const option = document.createElement('option');
+            option.value = model;
+            option.textContent = model;
+            modelSelect.appendChild(option);
+          }
+        }
+        modelSelect.disabled = !selectedMake; // Disable if no make selected
+        variantSelect.disabled = true;
+        storageSelect.disabled = true;
+      }
+
+      function populateVariants() { // This now populates the colors from products.html
+        variantSelect.innerHTML = '<option value="">Select Variant / ویرینٹ منتخب کریں</option>';
+        storageSelect.innerHTML = '<option value="">Select Storage / اسٹوریج منتخب کریں</option>';
+
+        const selectedMake = makeSelect.value;
+        const selectedModel = modelSelect.value;
+
+        if (selectedMake && selectedModel && phoneData[selectedMake] && phoneData[selectedMake].models[selectedModel]) {
+          phoneData[selectedMake].models[selectedModel].variants.forEach(variant => { // 'variants' here are colors
+            const option = document.createElement('option');
+            option.value = variant;
+            option.textContent = variant;
+            variantSelect.appendChild(option);
+          });
+        }
+        variantSelect.disabled = !selectedModel; // Disable if no model selected
+        storageSelect.disabled = true;
+      }
+
+      function populateStorage() { // This now populates the RAM/storage from products.html
+        storageSelect.innerHTML = '<option value="">Select Storage / اسٹوریج منتخب کریں</option>';
+
+        const selectedMake = makeSelect.value;
+        const selectedModel = modelSelect.value;
+
+        if (selectedMake && selectedModel && phoneData[selectedMake] && phoneData[selectedMake].models[selectedModel]) {
+          phoneData[selectedMake].models[selectedModel].storage.forEach(s => { // 'storage' here is RAM/storage
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            storageSelect.appendChild(option);
+          });
+        }
+        storageSelect.disabled = !variantSelect.value; // Enable storage selection only after a variant (color) is chosen
+      }
+
+      makeSelect.addEventListener('change', populateModels);
+      modelSelect.addEventListener('change', populateVariants);
+      variantSelect.addEventListener('change', populateStorage);
+
+      // Initial population and disabling of dependent selects
+      populateModels(); // Call once on page load to populate initial make options
+
+
+      // *** New code to pre-fill form fields from URL parameters ***
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlModel = urlParams.get('model');
+        const urlVariant = urlParams.get('variant'); // This is RAM/Storage from products.html
+        const urlColor = urlParams.get('color');     // This is the actual color from products.html
+
+        if (urlModel && urlVariant && urlColor) {
+          let foundMake = '';
+          // Find the make based on the model from the URL
+          for (const makeKey in phoneData) {
+            if (phoneData[makeKey].models[urlModel]) {
+              foundMake = makeKey;
+              break;
+            }
+          }
+
+          if (foundMake) {
+            makeSelect.value = foundMake;
+            populateModels(); // Populate models based on the selected make
+            modelSelect.value = urlModel;
+            populateVariants(); // Populate variants (colors) based on the selected model
+            variantSelect.value = urlColor; // Set the variant (color)
+            populateStorage(); // Populate storage options based on the selected model (since variantSelect isn't directly involved in storage hierarchy here)
+            storageSelect.value = urlVariant; // Set the storage (RAM/storage)
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

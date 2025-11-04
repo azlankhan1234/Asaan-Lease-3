@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lease Terms — Asaan Lease</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* --- NEW STYLES FROM HOME PAGE --- */
+    :root {
+      --primary: #f97316;
+      --secondary: #fbbf24;
+      --dark: #1f2937;
+      --light: #fff;
+      --gradient: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+      --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+      --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    body { font-family:'Inter', sans-serif; margin:0; background:#f8f9fa; color:var(--dark); }
+    a { text-decoration:none; transition:0.3s; }
+    
+    /* Navbar */
+    .navbar {
+      background:#fff !important;
+      padding:15px 0;
+      box-shadow:var(--shadow-sm);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: var(--dark) !important;
+    }
+    .navbar-brand img {
+      height: 120px; /* MODIFIED: Increased logo size to match homepage */
+      width: auto;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .navbar-brand img:hover { transform: scale(1.05); }
+    .nav-link {
+      font-weight:600;
+      font-size:1.05rem;
+      color:var(--dark) !important;
+      margin:0 15px;
+    }
+    .nav-link:hover { color:var(--primary) !important; }
+    .nav-link.active {
+      color:var(--primary) !important;
+      border-bottom:2px solid var(--primary);
+      padding-bottom:5px;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--gradient);
+      color:#fff;
+      padding: 80px 0;
+      text-align:center;
+    }
+    .page-header h1 {
+      font-weight:800;
+      font-size:3.2rem;
+      margin-bottom:15px;
+    }
+    .page-header p {
+      color:#f3f4f6;
+      font-size:1.2rem;
+    }
+
+    /* Terms Section Styling */
+    .terms-container {
+        background: var(--light);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+        margin-top: -60px; /* Pulls the content up over the header */
+        position: relative;
+        z-index: 2;
+    }
+    .terms-section {
+        margin-bottom: 45px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .terms-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .terms-section h4 {
+        font-weight: 800;
+        font-size: 2rem;
+        color: var(--dark);
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .terms-section h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+    }
+    
+    .terms-section h5 {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.3rem;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .terms-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .terms-section ul li {
+        color: #4a5568;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        padding-left: 28px;
+        position: relative;
+        margin-bottom: 12px;
+    }
+    /* Custom bullet points for better visuals */
+    .terms-section ul li::before {
+        content: '\f058'; /* FontAwesome check-circle icon */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: var(--primary);
+        position: absolute;
+        left: 0;
+        top: 4px;
+        font-size: 1rem;
+    }
+
+    /* Specific styling for Urdu text */
+    [dir="rtl"] {
+      font-family: 'Noto Nastaliq Urdu', 'Inter', sans-serif; /* A beautiful Urdu font */
+      font-size: 1.2rem; /* Larger font for readability */
+    }
+    [dir="rtl"] h5 {
+      text-align: right;
+    }
+    [dir="rtl"] li {
+      padding-left: 0;
+      padding-right: 28px;
+    }
+    [dir="rtl"] li::before {
+        left: auto;
+        right: 0;
+    }
+
+    /* Footer */
+    footer {
+      background:var(--dark);
+      color:#e2e8f0;
+      padding:70px 0 40px;
+    }
+    footer h5, footer h6 { color:#fff; font-weight:700; margin-bottom:20px; }
+    footer p.muted-sm { font-size:0.95rem; color:#a0aec0; }
+    footer a { color:var(--primary); font-weight:500; display:block; margin-bottom:10px; }
+    footer a:hover { color:#fff; }
+    .footer-bottom {
+      border-top:1px solid #374151;
+      padding-top:25px;
+      margin-top:40px;
+      font-size:0.9rem;
+      color:#a0aec0;
+    }
+  </style>
+  
+  <!-- Adding Urdu font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/logo.png" alt="Asaan Lease Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="bestsellers.html">Best Sellers</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+         <li class="nav-item"><a class="nav-link" href="news.html">News & Events</a></li>
+        <li class="nav-item"><a class="nav-link active" href="lease-terms.html">Lease Terms</a></li>
+         <li class="nav-item"><a class="nav-link active" href="lease-form.html">Apply Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <h1>Lease Terms & Conditions</h1>
+    <p>Clear, transparent, and customer-first leasing policies.</p>
+  </div>
+</header>
+
+<!-- TERMS CONTENT -->
+<main class="container py-5">
+  <div class="terms-container">
+    <div class="terms-section">
+      <h4>Eligibility Criteria</h4>
+      
+      <h5>English Terms:</h5>
+      <ul>
+        <li>If the customer's age is less than 25 years, their application will not be processed, and a guarantee from a family member is mandatory.</li>
+        <li>The customer's permanent address and current residence must be in Peshawar.</li>
+        <li>If the customer's residence in Peshawar is rented and is more than 15 kilometers from the city center, they are not eligible.</li>
+        <li>The customer's permanent job or their own business must be located in Peshawar.</li>
+        <li>If the job or business is outside Peshawar, the customer must own a permanent residence in Peshawar and provide two separate guarantors who are also permanent residents of Peshawar.</li>
+        <li>Students cannot apply as a customer or act as a guarantor.</li>
+        <li>Females can apply as a customer if they hold a permanent position in a government, semi-government, banking, or private institution. However, a female cannot act as a guarantor.</li>
+        <li>Individuals with online businesses are eligible if they have a government-approved office and can provide business records for the last 6 months.</li>
+      </ul>
+
+      <h5 class="mt-4" dir="rtl">اہلیت کے معیار (Urdu Terms):</h5>
+      <ul dir="rtl">
+        <li>اگر کسٹمر کی عمر 25 سال سے کم ہے تو ان کی انکوائری نہ ہوئی + گھر سے بھی فرد کی گارنٹی ہونی لازمی ہے۔</li>
+        <li>کسٹمر کا مستقل پتا پشاور میں ہونا لازمی ہے۔ کسٹمر کی رہائش پشاور میں ہونی لازمی ہے۔</li>
+        <li>پشاور سے بھی کسٹمر کی رہائش اگرچہ کرائے کی ہے تو 15کلومیٹر سے بالا ہو تو وہ فارم کا حصہ نہیں بن سکتے۔</li>
+        <li>کسٹمر کی مستقل نوکری یا اپنا کاروبار پشاور میں ہونا لازمی ہے۔</li>
+        <li>اگر کسٹمر کی مستقل نوکری یا کاروبار پشاور سے باہر ہے تو اسکا مستقل ذاتی رہائشی پشاور میں ہونا لازمی ہے۔ ایسے کسٹمر دو گارنٹر پشاور کے ذاتی رہائشی علیحده فراہم کرینگے۔</li>
+        <li>سٹوڈنٹ حضرات بطور کسٹمر یا گارنٹر فارم کا حصہ نہیں بن سکتے۔</li>
+        <li>فی میل حضرات اگر سرکاری/نیم سرکاری/بینک یا مستقل پرائیویٹ جاب کرتی ہیں تو بطور کسٹمر فارم کا حصہ بن سکتی ہیں۔ فی میل بطور گارنٹر فارم کا حصہ نہیں بن سکتی۔</li>
+        <li>آن لائن بزنس والے حضرات جن کے یہاں حکومتی منظور شدہ دفتر موجود ہے اور جو کہ پچھلے 6 ماہ کا ریکارڈ پیش کرسکتے ہیں تو وہ ہمارے فارم کا حصہ بن سکتے ہیں۔</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h4>Ineligible Professions</h4>
+      
+      <h5>English Terms:</h5>
+      <ul>
+        <li>Lawyers and members of the judiciary</li>
+        <li>Army and Police personnel</li>
+        <li>Doctors</li>
+        <li>Property Dealers</li>
+        <li>Goldsmiths (Sonar)</li>
+        <li>Marketing professionals</li>
+      </ul>
+
+      <h5 class="mt-4" dir="rtl">نا اہل پیشے (Urdu Terms):</h5>
+      <ul dir="rtl">
+          <li>وکلاء، عدلیہ، آرمی، پولیس/لیڈیز، ڈاکٹرز، پراپرٹی ڈیلرز، سونار/گولڈ سمتھ، مارکیٹنگ والے حضرات ہمارے فارم کا حصہ نہیں بن سکتے۔</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h4>General Business Terms</h4>
+      
+      <h5>English Terms:</h5>
+      <ul>
+        <li>Individuals with permanent employment (government, semi-government, or private) and owners of established businesses are eligible if they are permanent residents.</li>
+        <li>Businesspersons who do not have a permanent, established business are not eligible to apply.</li>
+      </ul>
+
+      <h5 class="mt-4" dir="rtl">عمومی کاروباری شرائط (Urdu Terms):</h5>
+      <ul dir="rtl">
+        <li>مستقل نوکری (سرکاری، نیم سرکاری، پرائیویٹ) والے حضرات اور مستقل کاروبار والے حضرات اگر بنیاد پر مستقل رہائشی ہیں تو وہ گاہک کے طور پر فارم کا حصہ بن سکتے ہیں۔</li>
+        <li>کاروباری حضرات (جن کا کوئی مستقل کاروبار نہیں ہے) گاہک کے طور پر فارم کا حصہ نہیں بن سکتے۔</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-4 mb-4">
+      <div class="col-lg-4 col-md-6">
+        <h5>Asaan Lease</h5>
+        <p class="muted-sm">Pakistan's trusted phone leasing solution. Offering flexible terms, official brand warranty, and easy upgrade options to bring you the latest technology without the upfront cost.</p>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6>Company</h6>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6>Support</h6>
+        <a href="lease-terms.html">Lease Terms</a>
+        <a href="#">Upgrade Policy</a>
+        <a href="#">Warranty Info</a>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h6>Stay Updated</h6>
+        <p class="muted-sm">Subscribe to our newsletter for the latest deals and product announcements.</p>
+        <form onsubmit="event.preventDefault(); alert('Subscribed!');" class="d-flex gap-2">
+          <input class="form-control" placeholder="Email address" type="email">
+          <button class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+      <div class="muted-sm">© <span id="copyYear"></span> Asaan Lease — All rights reserved.</div>
+      <div class="muted-sm">Designed by Azlan Khan</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copyYear').textContent = new Date().getFullYear();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
